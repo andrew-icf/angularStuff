@@ -63,14 +63,14 @@ Take a look a the following code:
     <title>Hello, World!</title>
   </head>
   <body>
-    <div ng-controller="HelloController">
+    <div ng-controller="HelloController"> <!-- VIEW -->
       <h2>Hello, {{hello.title}}!</h2>
     </div>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js"></script>
     <script>
     angular.module("myapp", [])
-      .controller("HelloController", function($scope) {
-        $scope.hello = {};
+      .controller("HelloController", function($scope) { // CONTROLLER
+      $scope.hello = {};     // MODEL
         $scope.hello.title = "World";
       });
     </script>
