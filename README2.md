@@ -1,7 +1,7 @@
 ## Questions
 
 
-## UNIT 1
+## Intro and Set up
 
 * Why learn Angular JS over other frameworks like Ember, Backbone, Knockout, etc?
 * Answer: Angular is very similar but it's simple and takes less lines of code, and it doesn't use setters and getters for data binding.
@@ -17,3 +17,25 @@
 
 * Turn to the Angular docs. Find `ng-app`. What is it and what does it do? What does `ng` stand for?
 * Answer: The ngApp found in the document will be used to define the root element to auto-bootstrap as an application. "ng" stands for angular.
+
+## Data-Binding
+* What does `ng-model` do?
+* Answer: Two way binds the value of your variable so that you can place it anywhere within a given $scope.
+
+* [What is "dirty checking"?](http://stackoverflow.com/questions/24698620/dirty-checking-on-angular)
+* Answer: It checks whether a value has changed that hasn’t yet been synchronized across the app.
+
+* Find a way to set the initial value of "name" as "BoJack" (without writing a controller).
+* Answer: You could use 'ng-init'
+
+* What are those `{{ }}` expressions? Are they Handlebars?
+* Answer: No they are not Handlebars. They are bindings usually used for JavaScript-like snippets.
+
+* Explain what two-way data binding is.
+* Answer: When properties in the model get updated, so does the UI. When UI elements get updated, the changes get propagated back to the model.
+
+* BONUS: Research the `$digest` loop
+* Answer: The Angular context refers specifically to code that runs inside the Angular event loop, referred to as the $digest loop.
+Two components:
+  The $watch list: watchExpression and objectEquality
+  The $evalAsync list

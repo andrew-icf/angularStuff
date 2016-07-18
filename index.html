@@ -5,12 +5,22 @@
     <title>{{ greeting }} World</title>
   </head>
   <body>
+    <h1>Intro and Set up</h1>
     <p>
       {{1 + 6}}
     </p>
     <p>Say something to the world <input type="text" ng-model="greeting" ng-init="greeting='Hello, '"></p>
     <p>{{ greeting }} world!</p>
-
+    <h1>Data-Binding</h1>
+    <input type="text" placeholder="What is your name?" ng-model="name">
+    <h2>My name is {{name}}</h2>
+    <select ng-model="pie">
+      <option>Dogs</option>
+      <option>Cats</option>
+      <option>Dogs and Cats</option>
+      <option>Neither</option>
+    </select>
+    <h3>i like {{pie}}</h3>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js"></script>
   </body>
 </html>
