@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>{{ greeting }} World</title>
+    <link rel="stylesheet" href="/main.css" >
   </head>
   <body>
     <h1>Intro and Set up</h1>
@@ -82,7 +83,85 @@
     <p>
       I'm in love with {{boysName | uppercase}}. He's so {{adj | uppercase}}! He has big flat {{pNoun1 | uppercase}}, and when our {{pNoun2 | uppercase}} meet, I get {{insect | uppercase}} in my stomach. I've fallen for him like a ton of {{pNoun3 | uppercase}}, and he {{verb | uppercase}} me, too. But I think he's got another girlfriend. What should I  do?
     </p>
+    <h1>05 Built in Directives</h1>
+    <p> ng-app, ng-model, ng-init</p>
+    <div ng-init="names=['Harry', 'Ron', 'Hermione', 'Sirius', 'Hedwig', 'Tonks']">
+      <ul>
+        <li ng-repeat='name in names'>
+          {{name}}
+         </li>
+      </ul>
+      <p> USED ng-repeat on the UL TAG</p>
+      <ul ng-repeat='name in names'>
+        <li>{{name}}</li>
+      </ul>
+    </div>
+    <div ng-init="symbols=['Spades', 'Clubs', 'Hearts', 'Diamonds']">
+      <ul>
+        <li ng-repeat='symbol in symbols'>
+          {{symbol}}
+          <md-icon md-svg-src = 'some url'></md-icon>
+         </li>
+      </ul>
+    </div>
+    <div ng-repeat="value in [1,1,1,2,3,4,9,9,9,9] track by $index">
+    </div>
+    <div ng-show='3 + 4 == 5'> <!-- this whole div will NOT show  show = false-->
+      3 + 4 isn't 5, don't show
+    </div>
+    <div ng-show='3 + 4 == 7'> <!-- this whole div WILL show  show = true-->
+      3 + 4 is 7, do show
+    </div>
+    <div ng-hide='3 + 4 == 5'> <!-- this whole div WILL show hide = false -->
+        3 + 4 isn't 5, don't hide
+    </div>
+    <div ng-hide='3 + 4 == 7'> <!-- this whole div will NOT show hide = true-->
+      3 + 4 is 7, do hide
+    </div>
+    <h3>Sign up page</h3>
+    <input ng-class="{bad: pwd.length <= 5, good: pwd.length >= 6}" type="password" ng-model="pwd">
+    <p>Your password is {{pwd.length}} characters</p>
+    <p ng-hide="pwd.length >= 6" ng-class="{bad: true}">Password is invalid</p>
+    <p ng-show="pwd.length >= 6" ng-class="{good: true}">Password is invalid</p>
+    <button ng-show="pwd.length >= 6 " type="submit">Sign up!</button>
+    <div ng-class='{highlight: 4 + 4 == 8}'> 4 + 4 = 8</div> <!-- true -->
+    <div ng-class='{highlight: 4 + 4 == 10}'>4 + 4 = 10</div> <!-- false -->
+    <h3>Camera Shop</h3>
+    <div ng-init="cameras=[{
+      title: 'Nikon D3100 DSLR',
+      image: 'http://ecx.images-amazon.com/images/I/713u2gDQqML._SX522_.jpg',
+      rating: 3.4,
+      price: 369.99,
+      onSale: true
+    },
+    {
+      title: 'Canon EOS 70D',
+      image: 'http://ecx.images-amazon.com/images/I/81U00AkAUWL._SX522_.jpg',
+      rating: 2.0,
+      price: 1099.0,
+      onSale: false
+    },
+    {
+      title: 'Nikon D810A',
+      image:'http://ecx.images-amazon.com/images/I/91wtXIfLl2L._SX522_.jpg',
+      rating: 4.2,
+      price: 3796.95,
+      onSale: true
+    }]">
+    <select ng-model="sale">
+      <option>price</option>
+      <option>rating</option>
+    </select>
+    <ul>
+      <li ng-repeat="camera in cameras | orderBy: sale "> <!-- do this by your ng-model -->
+        {{camera.title}}
+        <img src="{{camera.image}}" alt="camera" />
+        <p>{{camera.rating}}</p>
+        <p>{{camera.price | currency}} <span ng-show="{{camera.onSale}}" ng-class="{highlight: true}">ON SALE</span></p>
+      </li>
+    </ul>
 
+    </div>
 
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js"></script>
     <script type="text/javascript" src="angular.js"></script>

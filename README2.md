@@ -55,3 +55,17 @@ Answer: {{ expression | filter }} or {{ expression | filter1 | filter2 | ... }}
 Answer: YES, {{ expression | filter1 | filter2 | ... }}
 * We'll soon see how to create custom filters. What is a use case for a custom filter?
 Answer: We can customize most things to what we want like converting numbers to their ordinal values.
+
+## Built-in Directives
+* What is the purpose of `ng-init`?
+Answer: You can evaluate an expression in the current scope
+* Why use `ng-src` and `ng-href`?
+Answer: For both of them you can use {{}} inside the source
+* What are directives?
+Answer: Directives are extended HTML attributes with the 'ng-' prefix
+* Does `ng-class` require an object to be passed in?
+Answer: It is not required but it can take an Object.
+* What order does an ng-repeat display items in?
+Answer: JavaScript specification does not define the order of keys returned for an object, so Angular relies on the order returned by the browser, which generally follow the strategy of providing keys in the order in which they were defined.
+* How does `ng-repeat` handle duplicate data?
+Answer: It uses track by $index

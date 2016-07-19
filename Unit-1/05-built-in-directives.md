@@ -67,7 +67,7 @@ Now let's iterate through the `names` array in the body. In the body of `index.h
 ```
 
 Question: what would happen if you put the `ng-repeat` directive on the `ul` element, like so?
-
+Answer: It repeats through the unordered list as opposed to the list item.
 ```html
 <ul ng-repeat='name in names'>
   <li>{{name}}</li>
@@ -79,12 +79,15 @@ Question: what would happen if you put the `ng-repeat` directive on the `ul` ele
 Add an ng-init with a  property called `symbols` with the value `['Spades', 'Clubs', 'Hearts', 'Diamonds']`. Use an `ng-repeat` to display each one in the body.
 
 BONUS: Figure out how to make these entity codes actually display as symbols, like the following image:
+Answer: md-icon is not like bootstrap icons. Currently they are merely a directive that shows a .svg file.
 
 ![](http://content.screencast.com/users/ColtSteele1/folders/Jing/media/d75c95af-4729-4b8f-bf84-3b98a87f3213/00000003.png)
 
 **EXERCISE**
 
 Try using `ng-repeat` to iterate through an array with some duplicates, like `[1,1,2,5,6,9,9,9]`. What happens?  Research how `ng-repeat` handles duplicate data and how to 'fix' this issue.
+
+Answer: Nothing is happening. Duplicate keys are banned because AngularJS uses keys to associate DOM nodes with items. You can use "track by $index" which will cause the items to be keyed by their position in the array instead of their value.
 
 **EXERCISE**
 
@@ -119,6 +122,7 @@ The element is hidden when the expression provided to `ng-show` attribute is `fa
 **EXERCISE**
 
 Inspect an element that is hidden by `ng-show`/`hide` in the browser. What does Angular do to hide an element?
+Answer: It adds a class of "ng-hide" to the hidden ones.
 
 **EXERCISE**
 
