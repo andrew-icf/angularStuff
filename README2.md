@@ -39,3 +39,19 @@
 Two components:
   The $watch list: watchExpression and objectEquality
   The $evalAsync list
+
+## Expressions and filters
+
+* What are Angular expressions? How do they compare to tags from templating engines you've used before?
+Answer: JavaScript-like code snippets that are mainly placed in interpolation bindings, but also used directly in directive attributes. They are pretty similar but use their own "ng" property.
+
+* What happens when you write invalid code in an expression? What type of error do you get?
+Answer: You get a Syntax Error
+* What are Angular filters? Describe what a filter does and then name four built-in filters, including one that we haven't used yet.
+Anser: Filters format the value of an expression for display to the user. Filters are only executed when their inputs have changed and they filter to what you put in, including you're own. JSON, date, limitTo, filter
+* What's the syntax for filters?
+Answer: {{ expression | filter }} or {{ expression | filter1 | filter2 | ... }}
+* Can you use more than one filter?
+Answer: YES, {{ expression | filter1 | filter2 | ... }}
+* We'll soon see how to create custom filters. What is a use case for a custom filter?
+Answer: We can customize most things to what we want like converting numbers to their ordinal values.

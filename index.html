@@ -21,6 +21,70 @@
       <option>Neither</option>
     </select>
     <h3>i like {{pie}}</h3>
+
+    1 + 2 = {{1 + 2}}<br>
+    My name is {{"BoJack" +  " Horseman"}}<br>
+    The array [99,43,22] is {{ [99,43,22].length }} items long.<br>
+    <h1>04 Expressions and Filters</h1>
+    {{3.14159265359 | currency}} <br>
+    {{(3.14159265359 | number:2) + " €"}}
+    <form action="#" method="post">
+      <label>Please say something</label>
+      <input type="text" ng-model="text">
+    </form>
+      <p>Yelling: {{text | uppercase }}</p>
+      <p>Whispering: {{text | lowercase }}</p>
+    {{3.14159265359 | number:3}}<br>
+    {{3.14159265359 | number:6}}<br>
+    {{3.14159265359 | number:1}}<br>
+    <h4>How many digits fo pi do you want?
+      <select ng-model="pi">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+        <option>6</option>
+        <option>7</option>
+      </select>
+    </h4>
+    <h4>Here you go! The first {{pi}} of pi!</h4>
+    <p>
+      {{3.14159265359 | number:pi}}
+    </p>
+    <h2>Super useful tip calculator</h2>
+    <p>How much did your meal cost? <input type="text" ng-model="subTotal"></p>
+    <p>How much do you want to tip?
+      <select ng-model="tip">
+        <option>10</option>
+        <option>15</option>
+        <option>20</option>
+      </select>
+    </p>
+    <h3>Subtotal: {{subTotal | currency }}</h3>
+    <h3>Tip: {{subTotal * tip/100 | currency }}</h3>
+    <div>{{this}}</div>
+    <h1>Mad Libs</h1>
+    <label>Boy's Name</label>
+    <input type="text" ng-model="boysName"><br>
+    <label>Adjective</label>
+    <input type="text" ng-model="adj"><br>
+    <label>Plural Noun</label>
+    <input type="text" ng-model="pNoun1"><br>
+    <label>Plural Noun</label>
+    <input type="text" ng-model="pNoun2"><br>
+    <label>An insect, plural</label>
+    <input type="text" ng-model="insect"><br>
+    <label>Plural Noun</label>
+    <input type="text" ng-model="pNoun3"><br>
+    <label>A verb ending in "s"</label>
+    <input type="text" ng-model="verb"><br>
+    <p>
+      I'm in love with {{boysName | uppercase}}. He's so {{adj | uppercase}}! He has big flat {{pNoun1 | uppercase}}, and when our {{pNoun2 | uppercase}} meet, I get {{insect | uppercase}} in my stomach. I've fallen for him like a ton of {{pNoun3 | uppercase}}, and he {{verb | uppercase}} me, too. But I think he's got another girlfriend. What should I  do?
+    </p>
+
+
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js"></script>
+    <script type="text/javascript" src="angular.js"></script>
   </body>
 </html>

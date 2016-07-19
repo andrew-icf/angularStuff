@@ -88,6 +88,8 @@ Add the following code to your HTML file, within the scope of `ng-app`:
 
 What does this tell you about the context of Angular [expressions](https://docs.angularjs.org/guide/expression)?
 
+Answer: JavaScript expressions are evaluated against the global window. In Angular, expressions are evaluated against a scope object.
+
 **EXERCISE**
 
 Let's test out your data binding and templating skills by building a [Mad Libs](http://en.wikipedia.org/wiki/Mad_Libs) application.
