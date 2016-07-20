@@ -22,6 +22,7 @@ The first line tells Angular to create a **module** named `firstApp`. `angular.m
 Back in our view, we need to specify which module our `ng-app` should use. Update the `<html>` element to `<html ng-app="firstApp">`.
 
 **Question: What are Angular modules? Why should we use them?**
+Answer:A container for different parts of your app. The main method that instantiates and wires together the different parts of the application.
 
 We're declaring a new controller named "MyFirstController". The first argument to `.controller()` is just the name of the new controller, and the second argument is a function that defines the functionality of the controller. Inside of "MyFirstController", we're adding a `name` property to the `$scope` with the value "Severus Snape".
 
@@ -56,6 +57,7 @@ When you run this in your browser, you'll see that the initial value that we set
 Try moving the `h1` and `input` tags somewhere outside of the `div`. Notice that we no longer have access to the initial value of "Severus Snape".
 
 **Why doesn't this cause an error message?**
+Answer: We still have the tags it's just being placed outside the scope.
 
 To wrap up, according to the Angular Docs you should use controllers to:
 

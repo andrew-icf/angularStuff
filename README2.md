@@ -69,3 +69,13 @@ Answer: It is not required but it can take an Object.
 Answer: JavaScript specification does not define the order of keys returned for an object, so Angular relies on the order returned by the browser, which generally follow the strategy of providing keys in the order in which they were defined.
 * How does `ng-repeat` handle duplicate data?
 Answer: It uses track by $index
+
+## Intro to controllers
+* What is `$scope`?
+Answer: The glue between the controller and the view
+* What are Angular modules? What's the syntax for defining a module?
+Answer: Modules are used to separate logics say services, controllers, application etc. and keep the code clean. We define modules in separate js files and name them as per the module.js file. All modules that you want to use in your app should be declared here.
+* Why do we pass in `$scope` as an argument to controller functions?
+Answer: A new child scope will be created and made available as an injectable parameter to the Controller's constructor function as $scope.
+* In Express, what are Angular controllers most analogous to?
+Answer: Route handlers, done in HTML controlling what tags respond to what controllers.

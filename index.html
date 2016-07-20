@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app>
+<html ng-app="firstApp">
   <head>
     <meta charset="utf-8">
     <title>{{ greeting }} World</title>
@@ -162,8 +162,42 @@
     </ul>
 
     </div>
-
+    <div ng-controller="MyFirstController">
+      <h1>My name is: {{name}}</h1>
+      <input ng-model="name" type="text" placeholder="What is your name">
+    </div>
+    <div ng-controller="ExercisesController">
+      <h2 ng-style='{"color": FavColor}'>My favorite color is {{FavColor}}</h2>
+      <h3>There are {{secondsInACentury | number}} seconds in a century</h3>
+      <h3>Current time: {{rightNow | date:'EEEE, MMMM d, y'}}</h3>
+    </div>
+    <div ng-controller="MadLib">
+      <form name="myForm">
+        <label>Boy's Name</label>
+        <input type="text" ng-model="boysName"><br>
+        <label>Adjective</label>
+        <input type="text" ng-model="adj"><br>
+        <label>Plural Noun</label>
+        <input type="text" ng-model="pNoun1"><br>
+        <label>Plural Noun</label>
+        <input type="text" ng-model="pNoun2"><br>
+        <label>An insect, plural</label>
+        <input type="text" ng-model="insect"><br>
+        <label>Plural Noun</label>
+        <input type="text" ng-model="pNoun3"><br>
+        <label>A verb ending in "s"</label>
+        <input type="text" ng-model="verb"><br>
+        <button type="submit" ng-click="mad(boysName, adj, pNoun1, pNoun2, insect, pNoun3, verb)">Generate!</button>
+      </form>
+      <h3>Mad with the Libs</h3>
+      <p ng-show="showMadLib">
+        I'm in love with {{customBoysName | uppercase}}. He's so {{customAdj | uppercase}}! He has big flat {{custompNoun1 | uppercase}}, and when our {{custompNoun2 | uppercase}} meet, I get {{custominsect | uppercase}} in my stomach. I've fallen for him like a ton of {{custompNoun3 | uppercase}}, and he {{customverb | uppercase}} me, too. But I think he's got another girlfriend. What should I  do?
+      </p>
+      <button ng-show="showMadLib" type="submit" ng-click="clear()">Play Again?</button>
+    </div>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js"></script>
     <script type="text/javascript" src="angular.js"></script>
+    <script type="text/javascript" src="controller/app.js"></script>
+    <script type="text/javascript" src="controller/madController.js"></script>
   </body>
 </html>
