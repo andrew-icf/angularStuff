@@ -79,3 +79,13 @@ Answer: Modules are used to separate logics say services, controllers, applicati
 Answer: A new child scope will be created and made available as an injectable parameter to the Controller's constructor function as $scope.
 * In Express, what are Angular controllers most analogous to?
 Answer: Route handlers, done in HTML controlling what tags respond to what controllers.
+
+## Intro to Scope
+* What is $rootScope?
+Answer: All apps have a single root scope, all other scopes are descendant scopes of the root scope.
+* Explain how $scope is passed from a parent to child controller
+Answer: Through prototypal inheritance, meaning they have access to their parent scope.
+* List five built in directives that create their own scope
+Answer: ng-controller, ng-repeat, ng-if, ng-view, ng-switch, ng-include
+* "Scope becomes tricky when you try to 2 way data bind to a primitive defined on the parent scope from inside the child scope" - what does this mean?
+Answer: When we bind to a primitive it doesn't tap the prototype chain and we break the way JavaScript tries to find the data we are looking for.

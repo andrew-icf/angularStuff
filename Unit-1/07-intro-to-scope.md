@@ -282,3 +282,4 @@ If you want to read a bit more in depth, [this](https://github.com/angular/angul
 
 - Create an example of some buggy angular code where you try to two way data bind a primitive defined on the parent scope from inside the child scope
 - Fix your example above, how did you fix it? What did you have to do to make it work?
+Answer: I gave it protypical inheritance by declaring an object in the controller. Always have a DOT!

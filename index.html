@@ -195,6 +195,15 @@
       </p>
       <button ng-show="showMadLib" type="submit" ng-click="clear()">Play Again?</button>
     </div>
+    <div ng-controller="MainController">
+      {{view.message}}
+      <div class="">
+        {{view.message}}
+        <div ng-if="view.number === 42">
+          Secret Message: <input type="text" ng-model="view.message">
+        </div>
+      </div>
+    </div>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js"></script>
     <script type="text/javascript" src="angular.js"></script>
     <script type="text/javascript" src="controller/app.js"></script>
