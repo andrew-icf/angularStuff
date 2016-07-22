@@ -204,8 +204,27 @@
         </div>
       </div>
     </div>
+    <h1>08 Intro to Events</h1>
+    <div ng-controller="RandomNumber">
+      <h3>The number is {{view.number}}</h3>
+      <button ng-click="pickRandomNumber()">Pick Random Number</button>
+      <h3>Word Reversal</h3>
+      <input type="text" ng-model="view.word">
+      <button ng-click="reverseWord(view.word)">Reverse this word now!!!</button>
+      {{view.word}}
+    </div>
+    <div ng-controller="PingPong">
+      <h2>Ping Pong Score Keeper</h2>
+      <div class="player" ng-model="game.player1" ng-click="game.player1 = game.player1 + 1" ng-class="{bad: game.player1 <= 5, good: game.player1 = 11}">
+        {{game.player1}}
+      </div>
+      <div class="player" ng-model="game.player2" ng-click="game.player2 = game.player2 + 1" ng-class="{bad: game.player2 <= 5, good: game.player2 >= 6}">
+        {{game.player2}}
+      </div>
+      <button ng-click="reset()">Clear this game!</button>
+    </div>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js"></script>
-    <script type="text/javascript" src="angular.js"></script>
+    <script type="text/javascript" src="controller/angular.js"></script>
     <script type="text/javascript" src="controller/app.js"></script>
     <script type="text/javascript" src="controller/madController.js"></script>
   </body>

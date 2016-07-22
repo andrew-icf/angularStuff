@@ -38,6 +38,7 @@ And that's it!  Try clicking your button and watch as the number changes automat
 **EXERCISE**
 
 Explain in as much detail as you can what happens when you click the button.  Why does `number` update in the template without us telling it to?
+Answer: By setting ng-click to the function in our controller we are able to access that with a click.
 
 **EXERCISE**
 
@@ -125,7 +126,7 @@ $scope.replay = function() {
     replaying = false;
     // else
     $timeout(dispalyPrevColor, 1000);
-    // end if/else 
+    // end if/else
   };
   if (!replaying) {
     replaying = true;
