@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="redditClone">
+<html ng-app="redditClone" ng-cloak>
   <head>
     <meta charset="utf-8">
     <title>Reddit-Clone</title>
@@ -10,7 +10,7 @@
     <header>
       <h1>Reddit Clone</h1>
       <h3 class="inline"> <a href="" ng-click="addIt()"> <i class="fa fa-plus" aria-hidden="true"></i> Submit Post</h3></a>
-      <input class="inline" type="text" name="name" placeholder="Search">
+      <input class="inline" type="text" name="name" placeholder="Search" ng-model="searchText">
       <h4 class="inline" >Sorted by </h4>
       <select class="inline" ng-model='select'>
         <option>likes</option>
@@ -18,7 +18,7 @@
         <option>title</option>
       </select>
     </header>
-    <section class="addForm" ng-show="showForm" >
+    <section class="addForm slide" ng-show="showForm" >
       <form ng-submit="addBall()" name="addPostForm">
         <label for"title">Title</label>
         <input id="title" ng-model="formz.title" type="text" name="title" ng-minlength='3' required>
@@ -33,14 +33,14 @@
     </section>
     <section>
       <ul>
-        <li class="main" ng-repeat="post in posts | orderBy: select ">
+        <li class="main" ng-repeat="post in posts | orderBy: select | filter: searchText ">
           <img ng-src="{{post.img}}" alt="image" />
           <h2>{{post.title}}</h2>
-          <h2 ng-controller="likes">
+          <h2>
             <i ng-model="doI.like" ng-click="doI.like = doI.like + 1" class="fa fa-thumbs-up" aria-hidden="true">
             </i>
             <i ng-model="doI.like" ng-click="doI.like = doI.like - 1" class="fa fa-thumbs-down" aria-hidden="true">
-            </i> <span ng-class="{red: doI.like <= 0, good: doI.like > 0}">{{doI.like}}</span>
+            </i> <span ng-class="{red: doI.like <= 0, good: doI.like > 0}"> {{ doI.like + post.likes}}</span>
           </h2>
           <h4>By: {{post.author}}</h4>
           <p class="desc">{{post.description}}<br><br>
@@ -70,6 +70,5 @@
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.js"></script>
     <script type="text/javascript" src="controller2/app.js"></script>
     <script type="text/javascript" src="controller2/likes.js"></script>
-
   </body>
 </html>
