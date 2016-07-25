@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <title>Reddit-Clone</title>
-    <link rel="stylesheet" href="/main.css" >
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css">
+    <link rel="stylesheet" href="/views/main.css" >
   </head>
   <body ng-controller="firstController">
     <header>
@@ -37,10 +37,10 @@
           <img ng-src="{{post.img}}" alt="image" />
           <h2>{{post.title}}</h2>
           <h2>
-            <i ng-model="doI.like" ng-click="doI.like = doI.like + 1" class="fa fa-thumbs-up" aria-hidden="true">
+            <i ng-click="addLike()" class="fa fa-thumbs-up" aria-hidden="true">
             </i>
-            <i ng-model="doI.like" ng-click="doI.like = doI.like - 1" class="fa fa-thumbs-down" aria-hidden="true">
-            </i> <span ng-class="{red: doI.like <= 0, good: doI.like > 0}"> {{ doI.like + post.likes}}</span>
+            <i ng-click="subLike()" class="fa fa-thumbs-down" aria-hidden="true">
+            </i> <span ng-class="{red: post.likes <= 0, good: post.likes > 0}"> {{post.likes}} </span>
           </h2>
           <h4>By: {{post.author}}</h4>
           <p class="desc">{{post.description}}<br><br>
@@ -64,11 +64,9 @@
       </ul>
     </section>
 
-
-    <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.4/moment-timezone-utils.js"></script> -->
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.js"></script>
-    <script type="text/javascript" src="controller2/app.js"></script>
-    <script type="text/javascript" src="controller2/likes.js"></script>
+    <script type="text/javascript" src="/angularControllers/controller2/app.js"></script>
+    <script type="text/javascript" src="/angularControllers/controller2/likes.js"></script>
   </body>
 </html>

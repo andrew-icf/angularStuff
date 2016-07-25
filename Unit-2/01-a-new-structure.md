@@ -41,6 +41,10 @@ Visit `localhost:8080` to see the application. *Make sure everything works corre
 ## Questions
 
 * What are possible issues with this new file structure?
+Answer: You need to be in that file to use http-server and you need to update your link tags and script tags.
 * When thinking about extending the single responsibility principle to the app structure, what are some other ways that the app could be structured?
+Answer: You could break down separate files for each controller and each directive.
 * What are the differences between serving files from an http server and from the file system? It seemed to work fine with just `open index.html` in the browser...
+Answer: File servers generally offer some form of system security to limit access to files to specific users or groups.
 * Reflecting on the new structure and thinking back to lesson 1 - is Angular an MVC framework? How does the app structure support/disprove that?
+Answer: Yes it is still an MVC framework because it still needs to communicate using the controller from the model and the view.

@@ -28,7 +28,7 @@ app.controller('firstController', function($scope) {
       }
     ],
     counter: 1,
-    likes: 0
+    likes: 1
   }];
   $scope.date = new Date();
   $scope.showForm = false;
@@ -37,7 +37,17 @@ app.controller('firstController', function($scope) {
   }
   $scope.formz = {};
   $scope.addBall = function(){
-    $scope.posts.push($scope.formz);
+    $scope.posts.push({
+      title: $scope.formz.title,
+      img: $scope.formz.img,
+      author: $scope.formz.author,
+      description: $scope.formz.description,
+      likes: 0
+    });
+    $scope.formz.title = "";
+    $scope.formz.img = "";
+    $scope.formz.author = "";
+    $scope.formz.description = "";
     $scope.showForm = false;
   }
   $scope.showCommentForm = false;
@@ -57,6 +67,12 @@ app.controller('firstController', function($scope) {
   }
   $scope.clear = function(post){
     post.commentInput = {};
+  }
+  $scope.addLike = function(){
+    this.post.likes++;
+  }
+  $scope.subLike = function() {
+    this.post.likes--;
   }
 
 });
