@@ -6,7 +6,18 @@
     <link rel="stylesheet" href="./styles.css">
   </head>
   <body ng-controller="FirstController">
-
+    <p>
+      {{name}}'s {{"dog Rusty is adorable" | redact: "Rusty"}}. You will need to research creating custom filters that take parameters.
+    </p>
+    <p>
+      {{"hello-world" | camel}}
+    </p>
+    <p>
+      {{"hi Everybody20" | kebab}}
+    </p>
+    <!-- <p>
+      {{"It's my birthday" | pigLatin}}
+    </p> -->
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js"></script>
     <script type="text/javascript" src="./scripts/app.js"></script>
     <script type="text/javascript" src="./scripts/filters.js"></script>
