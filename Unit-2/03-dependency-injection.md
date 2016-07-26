@@ -25,10 +25,15 @@ SASS, Express
 - Single Responsibility Principle
 Answer: every module or class should have responsibility over a single part of the functionality provided by the software, and that responsibility should be entirely encapsulated by the class
 - Interface (you can start [here](http://stackoverflow.com/questions/3710275/does-javascript-have-the-interface-type-such-as-javas-interface))
+Answer: three ways of emulating interfaces in JavaScript: comments, attribute checking, and duck typing.  
 - Duck Typing
+Answer: If it walks like a duck, and quacks like a duck, as far as JS cares, it's a duck.
 - Law of Demeter
+Answer: a given object should assume as little as possible about the structure or properties of anything else (including its subcomponents) or Loose Coupling
 - Tight Coupling (in contrast with Loose Coupling)
+Answer: A group of classes are highly dependent on one another.
 - Separation of Concerns (in your own words :P )
+Answer: parts of code that can be broken down into modules so that it is easier to read and de-bug.
 
 After reading about Separation of Concerns, the Single Responsibility Principle and Law of Dememter - you now have a much better understanding of what writing modular entails (and how it can be done in languages that support or do not support interfaces!). These terms will appear all over programming documentation and in interviews as well - make sure you at least understand them at a high level!
 
@@ -116,8 +121,11 @@ We have been using __implicit annotation__ so far. You can read more about it in
 Angular supports 3 ways to annotate our code (define dependencies):
 
 1.  Implicit annotation
+  -simplest way to get hold of the dependencies is to assume that the function parameter names are the names of the dependencies
 2.  Inline array annotation
+  -The preferred way to annotate an application
 3.  $inject property annotation
+  -the minifiers can rename the function parameters and still be able to inject the right services
 
 __The implicit annotation dependency injection will break when you minify your code.__   This happens because minification tools rename variables to a something smaller, but the minification tool doesn't know that the variable name in the function is meaningful to angular.
 
@@ -126,8 +134,24 @@ For now, use inline array annotation (it is the most commonly seen and is stated
 ### Answer the following questions
 
 - What is dependency injection?
+Answer: a software design pattern that implements inversion of control for resolving dependencies.
 - How does angular implement dependency injection?
+Answer: Using toString() on a function angular can create an object and pass it in that spot, also using annotate.
 - What are the three ways to annotate our code with service names (dependencies)? Write three code examples with each one of these options.
+Inline Array Annotation -
+someModule.controller('MyController', ['$scope', 'greeter', function($scope, greeter) {
+  // ...
+}]);
+$inject Property Notation -
+var MyController = function($scope, greeter) {
+  // ...
+}
+MyController.$inject = ['$scope', 'greeter'];
+someModule.controller('MyController', MyController);
+Implicit Notation -
+someModule.controller('MyController', function($scope, greeter) {
+  // ...
+});
 
 ### Exercises
 
@@ -143,10 +167,13 @@ app.controller('SampleController', function($scope, $rootScope){
 - Look at an angular app you have made previous (reddit clone or your portfolio site).  What dependencies are there?  Where do you see dependencies other than the controller?
 
 - In production code, you typically want your javascript file to be as small as possible so that it can be downloaded faster.  To make the files smaller, developers minify their js files.  Find a minification tool and minify your js code.  Update your html file so that it now points to your newly minified js files.  Does your angular app still work?  If it stopped working, what is the problem?
+http://jscompress.com/
+Answer: No, you get injector errors.
 
 - Fix the app you minified earlier to use inline array annotation.  Minify the javascript files again.  Verify that the code still works when using the minified js.
 
 - When using inline array annotation does the order of anything matter?  What order should match?
+Answer: Yes, keep the annotation array in sync with the parameters in the function declaration.
 
 **BONUS** - write a function that takes in another function as an argument and returns an array of the function's parameters as strings.
 
